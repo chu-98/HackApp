@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "HackApp",
+    "slug": "HackApp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "HackApp"
+}
