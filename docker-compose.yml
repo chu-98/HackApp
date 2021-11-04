@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  app:
+    image: app
+    volumes:
+      - ./:/app/
+    ports:
+      - "5000:5000"
+  mongodb:
+    image: mongo
+    ports:
+      - "27018:27017"
