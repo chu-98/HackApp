@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text } from "react-native";
 import styled from "styled-components/native";
 
 const Container = styled.View`
@@ -25,7 +25,7 @@ const Ic = styled.Image`
 const Major = styled.Text`
   font-size: 12px;
   line-height: 16.8px;
-  letter-spacing: 0.06;
+  letter-spacing: 0.06px;
   text-align: center;
   color: #252c39;
 `;

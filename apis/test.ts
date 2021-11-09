@@ -1,13 +1,22 @@
 import { QueryFunction } from "react-query";
 
-const BASE_URL = "https://69cee40f-f372-4734-a2ff-a043da89d0b2.mock.pstmn.io";
+const BASE_URL = "http://localhost:3000";
 
 export interface Test {
-  id: number;
+  _id: string;
+  interests: string[];
+  specialties: string[];
+  career: string[];
+  imgUrl: string;
+  major: string;
+  grade: number;
+  univName: string;
+  univid: number;
   name: string;
-  desc: string;
-  sights: string;
-  data: string;
+  email: string;
+  createdAt: string;
+  updateAt: string;
+  __v: number;
 }
 
 export interface TestResponse {
@@ -19,6 +28,5 @@ interface Fetchers<T> {
 }
 
 export const testAPI: Fetchers<TestResponse> = {
-  test: () =>
-    fetch(`http://localhost:3000/temp/push/hello`).then(res => res.json()),
+  test: () => fetch(`${BASE_URL}/user/myprofile`).then(res => res.json()),
 };

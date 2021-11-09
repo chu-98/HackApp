@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
-import Mentor from "./BestMentor";
+import Mentor from "../Best/BestMentor";
 import MajorMentor from "./MajorMentor";
 
 const Container = styled.View``;
