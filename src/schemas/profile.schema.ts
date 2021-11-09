@@ -35,6 +35,9 @@ export class Profile {
     @Prop()
     interests: string[];
 
+    @Prop({ default: [0, 0, 0, 0, 0] })
+    review: number[];
+
     @Prop({ default: "" })
     message: string;
 }

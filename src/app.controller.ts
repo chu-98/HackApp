@@ -10,7 +10,7 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Get("defaultData")
+  @Get("defaultdata")
   async insertDefaultData(): Promise<string> {
     await this.appService.insertDefaultData();
     return "success";
