@@ -23,8 +23,8 @@ export class Profile {
     @Prop({ required: true })
     major: string;
 
-    @Prop({ default: 0 })
-    imgNum: number;
+    @Prop({ default: "a.png" })
+    imgUrl: string;
 
     @Prop()
     career: string[];
