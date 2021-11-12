@@ -141,7 +141,7 @@ const CustomMentorList = ({}) => {
         }}
       >
         <Img
-          source={require("/Users/chugyohyeon/Documents/HackApp/assets/img/img-profile01.png")}
+          source={require("/Users/chugyohyeon/Documents/HackApp/assets/profile/img-profile03.png")}
         />
         <Desc>
           <Info>
@@ -158,7 +158,7 @@ const CustomMentorList = ({}) => {
               한혜연
             </Name>
             <Ic
-              source={require("/Users/chugyohyeon/Documents/HackApp/assets/icon/ic-star.png")}
+              source={require("/Users/chugyohyeon/Documents/HackApp/assets/emoji/emoji-graduation.png")}
             />
             <Major
               style={{

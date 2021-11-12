@@ -3,10 +3,9 @@ import { Image, TouchableOpacity, View } from "react-native";
 import styled from "styled-components/native";
 import { useQuery } from "react-query";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { testAPI, TestResponse } from "../../apis/test";
+import { testAPI, TestResponse } from "../../apis/best";
 import BestMentorList from "./mentor/Best/BestMentorList";
 import MajorMentorList from "./mentor/Major/MajorMentorList";
-import CustomMentor from "./mentor/Custom/CustomMentor";
 import CustomMentorList from "./mentor/Custom/CustomMentorList";
 import Keyword from "./Keyword";
 
@@ -22,10 +21,8 @@ const Header = styled.View`
   border-radius: 12px;
 `;
 const Logo = styled.Image`
-  width: 40px;
-  height: 40px;
-  margin: 12px;
-  border-radius: 8;
+  align-self: center;
+  margin: 21px 17px;
 `;
 
 const Uni = styled.View`
@@ -33,13 +30,13 @@ const Uni = styled.View`
 `;
 const Small = styled.Text`
   line-height: 16.8px;
-  letter-spacing: 0.06;
+  letter-spacing: 0.06px;
   color: #7c8393;
   font-size: 12px;
 `;
 const Big = styled.Text`
   line-height: 28px;
-  letter-spacing: 0.06;
+  letter-spacing: 0.06px;
   color: #010b19;
   font-size: 20px;
 `;
@@ -115,22 +112,11 @@ const GoShop = styled.Text`
 `;
 const KeywordSlide = styled.View``;
 
-const imgUrl = [
-  "a.png",
-  "b.png",
-  "c.png",
-  "d.png",
-  "e.png",
-  "f.png",
-  "g.png",
-  "h.png",
-];
+// <Logo
+//   source={{ uri: "http://localhost:3000/public/" + testData?.imgUrl }}
+// />
 
 const Home: React.FC<NativeStackScreenProps<any, "Home">> = () => {
-  const { data: testData } = useQuery<TestResponse>(
-    ["tests", "test"],
-    testAPI.test
-  );
   return (
     <Container>
       <Header
@@ -142,11 +128,12 @@ const Home: React.FC<NativeStackScreenProps<any, "Home">> = () => {
         }}
       >
         <Logo
-          source={{ uri: "http://localhost:3000/public/" + testData?.imgUrl }}
+          style={{ width: 30, height: 22 }}
+          source={require("/Users/chugyohyeon/Documents/HackApp/assets/img/img-home-school-logo.png")}
         />
         <Uni>
-          <Small>{testData?.name}</Small>
-          <Big>{testData?.univName}</Big>
+          <Small>학교</Small>
+          <Big>원티드대학교</Big>
         </Uni>
         <Tail>
           <Part>멘토링 참여회원</Part>
@@ -171,7 +158,7 @@ const Home: React.FC<NativeStackScreenProps<any, "Home">> = () => {
           </TouchableOpacity>
         </Desc>
         <Image
-          source={require("/Users/chugyohyeon/Documents/HackApp/assets/icon/ic-star.png")}
+          source={require("/Users/chugyohyeon/Documents/HackApp/assets/img/img-home-banner.png")}
           style={{
             width: 70,
             height: 70,

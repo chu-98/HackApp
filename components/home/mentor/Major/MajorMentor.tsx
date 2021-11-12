@@ -1,6 +1,8 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 import styled from "styled-components/native";
+import LinearGradient from "react-native-linear-gradient";
+import { StyleSheetManager } from "styled-components";
 
 const Container = styled.View`
   width: 164px;
@@ -62,13 +64,32 @@ const Tag = styled.Text`
   text-align: center;
   color: #252c39;
 `;
+const Desc = styled.View`
+  margin: 6px 0px 12px 0px;
+`;
+const Group = styled.Text`
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19.6px;
+  letter-spacing: 0.07px;
+  text-align: center;
+`;
+const Plus = styled.Text`
+  opacity: 0.8;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16.8px;
+  letter-spacing: 0.06px;
+  text-align: center;
+`;
 
 const MajorMentor = ({}) => {
   return (
     <Container>
       <Majors>
         <Ic
-          source={require("/Users/chugyohyeon/Documents/HackApp/assets/icon/ic-star.png")}
+          source={require("/Users/chugyohyeon/Documents/HackApp/assets/emoji/emoji-graduation.png")}
         />
         <Major>시각디자인과</Major>
       </Majors>
@@ -83,7 +104,7 @@ const MajorMentor = ({}) => {
         }}
       />
       <Pic
-        source={require("/Users/chugyohyeon/Documents/HackApp/assets/img/img-profile06.png")}
+        source={require("/Users/chugyohyeon/Documents/HackApp/assets/profile/img-profile06.png")}
       />
       <Name>윤승아</Name>
       <Tags>
@@ -91,6 +112,10 @@ const MajorMentor = ({}) => {
         <Tag>대학생활</Tag>
         <Tag>+1</Tag>
       </Tags>
+      <Desc>
+        <Group>제일기획</Group>
+        <Plus>UXUI팀 매니저</Plus>
+      </Desc>
     </Container>
   );
 };

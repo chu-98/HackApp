@@ -1,12 +1,10 @@
 import React from "react";
 import styled from "styled-components/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import Home from "../components/home/Home";
 import Chat from "../components/chat/Chat";
 import Shop from "../components/shop/Shop";
 import MyPage from "../components/page/MyPage";
-import { Blue } from "../assets/colors/colors";
 
 const Tab = createBottomTabNavigator();
 
@@ -44,7 +42,10 @@ export default function Tabs() {
         component={Home}
         options={{
           tabBarIcon: () => (
-            <Icon source={require("../assets/icon/ic-home.png")} />
+            <Icon
+              style={{ width: 26, height: 26 }}
+              source={require("/Users/chugyohyeon/Documents/HackApp/assets/ic/ic-home.png")}
+            />
           ),
         }}
       />
@@ -53,7 +54,10 @@ export default function Tabs() {
         component={Shop}
         options={{
           tabBarIcon: () => (
-            <Icon source={require("../assets/icon/ic-calender.png")} />
+            <Icon
+              style={{ width: 26, height: 26 }}
+              source={require("/Users/chugyohyeon/Documents/HackApp/assets/ic/ic-calender.png")}
+            />
           ),
         }}
       />
@@ -62,7 +66,10 @@ export default function Tabs() {
         component={Chat}
         options={{
           tabBarIcon: () => (
-            <Icon source={require("../assets/icon/ic-chat.png")} />
+            <Icon
+              style={{ width: 26, height: 26 }}
+              source={require("/Users/chugyohyeon/Documents/HackApp/assets/ic/ic-chat.png")}
+            />
           ),
         }}
       />
@@ -71,7 +78,10 @@ export default function Tabs() {
         component={MyPage}
         options={{
           tabBarIcon: () => (
-            <Icon source={require("../assets/icon/ic-mypage.png")} />
+            <Icon
+              style={{ width: 26, height: 26 }}
+              source={require("/Users/chugyohyeon/Documents/HackApp/assets/ic/ic-mypage.png")}
+            />
           ),
         }}
       />

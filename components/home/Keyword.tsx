@@ -33,7 +33,7 @@ const Title2 = styled.Text`
   color: rgb(37, 44, 57);
 `;
 const Hashtag = styled.View`
-  margin: 12px 16px 16px 16px;
+  margin: 6px 16px 12px 16px;
 `;
 const HashTitle = styled.Text`
   font-size: 20px;
@@ -43,16 +43,12 @@ const HashTitle = styled.Text`
 `;
 const Tags = styled.View`
   flex-direction: row;
-  border-radius: 12px;
-  margin: 12px 0px;
+  margin: 6px 0px;
 `;
 const Tag = styled.Text`
   margin-right: 8px;
   padding: 4px 16px;
-  border-radius: 12px;
   background-color: #f7fafd;
-  border-width: 0.5px;
-  border-color: #c2cadb;
   font-size: 14px;
   line-height: 22.4px;
   letter-spacing: 0.08px;

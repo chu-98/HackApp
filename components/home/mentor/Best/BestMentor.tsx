@@ -51,7 +51,7 @@ const BestMentor = ({}) => {
   return (
     <Container>
       <Pic
-        source={require("/Users/chugyohyeon/Documents/HackApp/assets/img/img-profile01.png")}
+        source={require("/Users/chugyohyeon/Documents/HackApp/assets/profile/img-profile01.png")}
       />
       <Name>한혜연</Name>
       <Tags>
@@ -61,7 +61,7 @@ const BestMentor = ({}) => {
       </Tags>
       <Like>
         <Ic
-          source={require("/Users/chugyohyeon/Documents/HackApp/assets/icon/ic-heart-click.png")}
+          source={require("/Users/chugyohyeon/Documents/HackApp/assets/ic/ic-heart-click.png")}
         />
         <Count>87</Count>
       </Like>
