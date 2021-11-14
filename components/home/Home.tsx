@@ -1,13 +1,12 @@
 import React from "react";
-import { Image, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, Text, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
-import { useQuery } from "react-query";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { testAPI, TestResponse } from "../../apis/best";
 import BestMentorList from "./mentor/Best/BestMentorList";
-import MajorMentorList from "./mentor/Major/MajorMentorList";
 import CustomMentorList from "./mentor/Custom/CustomMentorList";
 import Keyword from "./Keyword";
+import { useQuery, useQueryClient } from "react-query";
+import { bestAPI, BestResponse } from "../../apis/api";
 
 const Container = styled.ScrollView`
   background-color: white;
@@ -60,13 +59,6 @@ const Count = styled.Text`
   font-weight: 600;
   font-size: 14px;
 `;
-
-const Best = styled.ScrollView`
-  margin-bottom: 48px;
-`;
-const Major = styled.ScrollView`
-  margin-bottom: 48px;
-`;
 const Custom = styled.ScrollView`
   margin-bottom: 21px;
 `;
@@ -111,12 +103,40 @@ const GoShop = styled.Text`
   color: #252c39;
 `;
 const KeywordSlide = styled.View``;
-
-// <Logo
-//   source={{ uri: "http://localhost:3000/public/" + testData?.imgUrl }}
-// />
+const Header2 = styled.View`
+  margin-left: 16px;
+  margin-bottom: 12px;
+`;
+const Modi = styled.Text`
+  font-size: 16px;
+  line-height: 22.4px;
+  letter-spacing: 0.08px;
+  text-align: left;
+  color: #555c6b;
+`;
+const Title = styled.View`
+  flex-direction: row;
+`;
+const Title1 = styled.Text`
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 33.6px;
+  letter-spacing: 0.05px;
+  text-align: left;
+  color: #1870f3;
+`;
+const Title2 = styled.Text`
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 33.6px;
+  letter-spacing: 0.05px;
+  text-align: left;
+  color: rgb(37, 44, 57);
+`;
 
 const Home: React.FC<NativeStackScreenProps<any, "Home">> = () => {
+  const queryClient = useQueryClient();
+  const { data: bestData } = useQuery<BestResponse>(["Best"], bestAPI.best);
   return (
     <Container>
       <Header
@@ -140,12 +160,46 @@ const Home: React.FC<NativeStackScreenProps<any, "Home">> = () => {
           <Count>653</Count>
         </Tail>
       </Header>
-      <Best horizontal showsHorizontalScrollIndicator={false}>
-        <BestMentorList />
-      </Best>
-      <Major horizontal showsHorizontalScrollIndicator={false}>
-        <MajorMentorList />
-      </Major>
+      <Header2>
+        <Modi>지금 가장 핫한</Modi>
+        <Title>
+          <Title1>베스트 </Title1>
+          <Title2>멘토</Title2>
+        </Title>
+      </Header2>
+      <FlatList
+        keyExtractor={item => item.email}
+        horizontal
+        data={bestData?.data}
+        renderItem={({ item }) => (
+          <BestMentorList
+            name={item.name}
+            img={item.imgUrl}
+            like={item.likeCount}
+            special={item.specialties}
+          />
+        )}
+      />
+      <Header2>
+        <Modi>나의 학과 선배님과 밥약을?!</Modi>
+        <Title>
+          <Title1>전공이 같은 </Title1>
+          <Title2>멘토</Title2>
+        </Title>
+      </Header2>
+      <FlatList
+        keyExtractor={item => item.email}
+        horizontal
+        data={bestData?.data}
+        renderItem={({ item }) => (
+          <BestMentorList
+            name={item.name}
+            img={item.imgUrl}
+            like={item.likeCount}
+            special={item.specialties}
+          />
+        )}
+      />
       <Custom>
         <CustomMentorList />
         <Index>1/4</Index>
