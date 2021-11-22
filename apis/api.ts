@@ -24,7 +24,7 @@ export const bestAPI: Fetchers<BestResponse> = {
 
 export interface Recommend {
   email: string;
-  majors: string;
+  major: string;
   name: string;
   imgUrl: string;
   likeCount: number;

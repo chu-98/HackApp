@@ -3,7 +3,8 @@ import styled from "styled-components/native";
 import BestMentor from "./BestMentor";
 
 const Mentors = styled.View`
-  flex-direction: row;
+  margin-left: 16px;
+  flex-direction: column;
 `;
 
 const Container = styled.View`
@@ -15,6 +16,8 @@ const Pic = styled.Image`
   align-self: center;
 `;
 const Name = styled.Text`
+  margin-top: 6px;
+  margin-bottom: 6px;
   font-size: 16px;
   font-weight: 500;
   line-height: 22.4px;
@@ -23,7 +26,6 @@ const Name = styled.Text`
   color: #000000;
 `;
 const Tags = styled.View`
-  flex-direction: row;
   margin-top: 8px;
   margin-bottom: 6px;
 `;
@@ -74,9 +76,6 @@ const BestMentorList: React.FC<BestMentorProps> = ({
       <Mentors>
         <Pic source={{ uri: "http://localhost:3000/public/" + img }} />
         <Name>{name}</Name>
-        {/* {special.map(item => (
-          <Tag>{item}</Tag>
-        ))} */}
         <Like>
           <Ic
             source={require("/Users/chugyohyeon/Documents/HackApp/assets/ic/ic-heart-click.png")}

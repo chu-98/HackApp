@@ -2,7 +2,9 @@ import React from "react";
 import { Text } from "react-native";
 import styled from "styled-components/native";
 
-const Container = styled.View``;
+const Container = styled.View`
+  margin-top: 40px;
+`;
 const Header = styled.View`
   margin-left: 16px;
   margin-bottom: 12px;

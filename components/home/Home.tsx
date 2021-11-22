@@ -6,7 +6,13 @@ import BestMentorList from "./mentor/Best/BestMentorList";
 import CustomMentorList from "./mentor/Custom/CustomMentorList";
 import Keyword from "./Keyword";
 import { useQuery, useQueryClient } from "react-query";
-import { bestAPI, BestResponse } from "../../apis/api";
+import {
+  bestAPI,
+  BestResponse,
+  recommendAPI,
+  RecommendResponse,
+} from "../../apis/api";
+import MajorMentorList from "./mentor/Major/MajorMentorList";
 
 const Container = styled.ScrollView`
   background-color: white;
@@ -104,6 +110,7 @@ const GoShop = styled.Text`
 `;
 const KeywordSlide = styled.View``;
 const Header2 = styled.View`
+  margin-top: 48px;
   margin-left: 16px;
   margin-bottom: 12px;
 `;
@@ -137,6 +144,10 @@ const Title2 = styled.Text`
 const Home: React.FC<NativeStackScreenProps<any, "Home">> = () => {
   const queryClient = useQueryClient();
   const { data: bestData } = useQuery<BestResponse>(["Best"], bestAPI.best);
+  const { data: recommendData } = useQuery<RecommendResponse>(
+    ["Recommend"],
+    recommendAPI.recommend
+  );
   return (
     <Container>
       <Header
@@ -188,15 +199,16 @@ const Home: React.FC<NativeStackScreenProps<any, "Home">> = () => {
         </Title>
       </Header2>
       <FlatList
+        showsHorizontalScrollIndicator={false}
         keyExtractor={item => item.email}
         horizontal
-        data={bestData?.data}
+        data={recommendData?.data}
         renderItem={({ item }) => (
-          <BestMentorList
-            name={item.name}
+          <MajorMentorList
+            major={item.major}
             img={item.imgUrl}
-            like={item.likeCount}
-            special={item.specialties}
+            name={item.name}
+            msg={item.message}
           />
         )}
       />

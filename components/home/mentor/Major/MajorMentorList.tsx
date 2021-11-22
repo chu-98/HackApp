@@ -1,58 +1,103 @@
 import React from "react";
+import { Text } from "react-native";
 import styled from "styled-components/native";
 import Mentor from "../Best/BestMentor";
 import MajorMentor from "./MajorMentor";
 
-const Container = styled.View``;
-const Header = styled.View`
-  margin-left: 16px;
-  margin-bottom: 12px;
+const Container = styled.View`
+  width: 164px;
+  height: 237px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 12px;
+  border-color: #56b3ff;
+  margin-left: 12px;
 `;
-const Modi = styled.Text`
+const Majors = styled.View`
+  margin-top: 10px;
+  flex-direction: row;
+  align-self: center;
+`;
+const Ic = styled.Image`
+  width: 18px;
+  height: 18px;
+  margin-right: 4px;
+`;
+const Major = styled.Text`
+  font-size: 12px;
+  line-height: 16.8px;
+  letter-spacing: 0.06px;
+  text-align: center;
+  color: #252c39;
+`;
+const Pic = styled.Image`
+  width: 60px;
+  height: 60px;
+  align-self: center;
+`;
+const Name = styled.Text`
+  margin-top: 8px;
   font-size: 16px;
+  font-weight: 500;
   line-height: 22.4px;
-  letter-spacing: 0.08px;
-  text-align: left;
-  color: #555c6b;
+  letter-spacing: 0.88px;
+  text-align: center;
+  color: #000000;
 `;
-const Title = styled.View`
-  flex-direction: row;
+const MsgBack = styled.View`
+  flex: 1;
+  margin-top: 12px;
+  background-color: rgb(86, 179, 255);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 12px;
+  border-color: #56b3ff;
 `;
-const Title1 = styled.Text`
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 33.6px;
-  letter-spacing: 0.05px;
-  text-align: left;
-  color: #1870f3;
-`;
-const Title2 = styled.Text`
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 33.6px;
-  letter-spacing: 0.05px;
-  text-align: left;
-  color: rgb(37, 44, 57);
-`;
-const Mentors = styled.View`
-  flex-direction: row;
+const Msg = styled.Text`
+  color: #ffffff;
+  margin: 20px 12px 0px 12px;
+  font-size: 13px;
+  line-height: 16.8px;
+  letter-spacing: 0.06px;
+  text-align: center;
 `;
 
-const MajorMentorList = ({}) => {
+interface MajorMentorProps {
+  major: string;
+  img: string;
+  name: string;
+  msg: string;
+}
+
+const MajorMentorList: React.FC<MajorMentorProps> = ({
+  major,
+  img,
+  name,
+  msg,
+}) => {
   return (
     <Container>
-      <Header>
-        <Modi>나의 학과 선배님과 밥약을?!</Modi>
-        <Title>
-          <Title1>전공이 같은 </Title1>
-          <Title2>멘토</Title2>
-        </Title>
-      </Header>
-      <Mentors>
-        <MajorMentor />
-        <MajorMentor />
-        <MajorMentor />
-      </Mentors>
+      <Majors>
+        <Ic
+          source={require("/Users/chugyohyeon/Documents/HackApp/assets/emoji/emoji-graduation.png")}
+        />
+        <Major>{major}</Major>
+      </Majors>
+      <Text
+        style={{
+          width: 149,
+          height: 0.5,
+          backgroundColor: "#c2cadb",
+          alignSelf: "center",
+          marginBottom: 12,
+          marginTop: 3.5,
+        }}
+      />
+      <Pic source={{ uri: "http://localhost:3000/public/" + img }} />
+      <Name>{name}</Name>
+      <MsgBack>
+        <Msg>{msg}</Msg>
+      </MsgBack>
     </Container>
   );
 };
